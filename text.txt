@@ -1,0 +1,44 @@
+Krijoj nje dokument html me strukturen e saj
+krijova nje div me klasen container qe permban nje div me ID square dhe nje div tjetër që përmban tre butona:
+square perfaqeson katrorin qe do te ndryshoje ngjyren 
+undo dhe redo per ndryshimet e ngjyrave
+shtova dy div-e per kutite Undo dhe Redo, secili me nje h3 per emrin dhe nje div bosh qe do te mbaje ngjyrat perkatese
+hap nje div color-boxes-row per te mbajtur hapsirat posht butonave
+
+
+Ne css therras body dhe bej pozicionimin e elementeve ne qender me flex
+katrorin square dhe percaktoj permasat dhe ngjyren fillestare te kuqe të katrorit 
+dhe vendosa nje margin per distancën nga butonat
+vendosa stilizime te pergjithshme per butonat dhe nje gjeresi te veçante per butonin kryesor per ta bere me 
+te dukshem 
+pozicionoj 2 kutite redo dhe undo
+.spacer bej ruajtjen e hapsirave mes kolonave
+
+Ne jvascipt krijoj funksionin getRandomColor() gjeneron nje ngjyre te rastesishme dhe e vendos te vektori colorhistory
+pasi me nje vektok bej te mundur te dyja funksionet redo undo
+ dhe changeColor() kur klikoj ndyshon ngjyren dhe ruan historine e ngjyrave
+ per rikthimin e ngjyres: funksionet undoColor() dhe redoColor() lejojne levizjen para dhe mbrapa ne 
+ historinë e ngjyrave
+ funksioni updateButtons menaxhon gjendjen e butonave "Undo" dhe Redo per te parandaluar veprimet qe nuk kane 
+ kuptim si undo në ngjyren fillestare ose redo pa ndryshime
+
+   shtoj undoColorsContainer dhe redoColorsContainer si referenca per div-et qe mbajne ngjyrat ne kutite perkatese
+ maxColors per numrin maksimal i ngjyrave që mund të mbahen në secilën kuti
+
+ trimHistory() siguron qe colorHistory te mos rritet me shume se maxColors. Nese tejkalon kete numer ngjyrat e 
+ para të historise fshihen, dhe currentIndex perditesohet per te mbajtur pozicionin e ndyshuar brenda kufijve
+
+ updateColorBoxes() ben ndryshimet ne permbajtjen e kutive Undo dhe Redo dhe per çdo ngjyre ne historikun perkates,
+  krijon nje div qe perfaqeson ngjyren dhe e vendos ate ne kuti
+  addEventListener lidh çdo div me nje funksion qe lejon perdoruesin te zgjedhe nje ngjyre nga historia
+   per ta vendosur ate ne katrorin kryesor
+
+   
+  setColorFromUndo(index) ben qe kur nje klient klikon nje ngjyre ne kutine Undo ky funksion vendos ngjyren
+   e katrorit kryesor ne ngjyren e zgjedhur dhe perditeson pozicionin aktual (currentIndex)  
+   setColorFromRedo(index) njesoj si me lart ben ndrydhim kur klikon Redo
+
+ updateButtons() kontrollon nese butonat Undo dhe Redo duhet të jene aktive apo jo
+  bazuar në pozicionin aktual të currentIndex
+  addEventListener sigurojnë që funksionet përkatëse të thirren kur përdoruesi klikon butonat 
+  ose div-et e ngjyrave
